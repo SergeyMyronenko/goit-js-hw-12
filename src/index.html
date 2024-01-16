@@ -15,19 +15,16 @@
   </head>
   <body>
     <form class="form">
-      <input
-        type="text"
-        name="search"
-        placeholder="Search images..."
-        required
-      />
+      <input type="text" name="search" placeholder="Search images..." />
       <button class="search-btn" type="submit">Search</button>
     </form>
 
     <div class="gallery-box">
-      <span class="loader"></span>
+      <span class="loader-top"></span>
       <ul class="gallery"></ul>
     </div>
+    <button type="button" class="load-image">Load more</button>
+    <span class="loader-bottom"></span>
 
     <script type="module" src="./main.js"></script>
   </body>

@@ -31,6 +31,7 @@
   max-width: 1440px;
   padding: 16px;
   margin: 0 auto;
+  margin-bottom: 24px;
 }
 
 .gallery {
@@ -126,6 +127,7 @@ input:active {
 }
 
 .loader {
+  padding: 16px;
   width: 64px;
   height: 64px;
   position: relative;
@@ -155,4 +157,21 @@ input:active {
     height: 64px;
     transform: rotate(360deg);
   }
+}
+
+.load-image {
+  display: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 8px;
+  height: 40px;
+  background-color: #4e75ff;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5em; /* 150% */
+  letter-spacing: 0.64px;
+  border: none;
 }
