@@ -129,7 +129,9 @@ async function loadMore(event) {
       loadImg.style.display = 'block';
       gallery.insertAdjacentHTML('beforeend', renderImg(hits));
     } else {
+      loaderBottom.style.display = 'none';
       loadImg.style.display = 'none';
+
       return iziToast.info({
         position: 'topRight',
         message: `We're sorry, but you've reached the end of search results.`,
