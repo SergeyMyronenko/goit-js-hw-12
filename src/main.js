@@ -31,7 +31,7 @@ loadImg.addEventListener('click', loadMore);
 
 async function onSubmit(event) {
   event.preventDefault();
-
+  page = 1;
   loaderTop.style.display = 'none';
   q = event.target.elements.search.value.trim();
 
@@ -76,10 +76,6 @@ async function onSubmit(event) {
     loaderTop.style.display = 'none';
     form.reset();
   }
-
-  const listItem = document.querySelectorAll('.gallery-item');
-  const itemHeight = listItem[0].getBoundingClientRect().height;
-  console.log(itemHeight);
 }
 
 function searchImg(q, page) {
@@ -119,6 +115,7 @@ function renderImg(hits = []) {
 
 async function loadMore(event) {
   loaderBottom.style.display = 'block';
+  loadImg.style.display = 'none';
   try {
     page += 1;
 
@@ -128,6 +125,8 @@ async function loadMore(event) {
     const totalPage = Math.ceil(totalHits / per_page);
 
     if (page < totalPage) {
+      loaderBottom.style.display = 'none';
+      loadImg.style.display = 'block';
       gallery.insertAdjacentHTML('beforeend', renderImg(hits));
     } else {
       loadImg.style.display = 'none';
@@ -140,9 +139,12 @@ async function loadMore(event) {
     console.log(error);
   }
 
+  const listItem = document.querySelector('.gallery-item:first-child');
+  const itemHeight = listItem.getBoundingClientRect().height;
+  console.log(itemHeight);
+  console.log(listItem);
   window.scrollBy({
-    top: 480,
-    left: 100,
+    top: 2 * itemHeight,
     behavior: 'smooth',
   });
 }
