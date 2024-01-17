@@ -32,15 +32,18 @@ loadImg.addEventListener('click', loadMore);
 async function onSubmit(event) {
   event.preventDefault();
   loaderTop.style.display = 'block';
+  loadImg.style.display = 'none';
   page = 1;
   q = event.target.elements.search.value.trim();
 
   if (!q) {
     gallery.innerHTML = '';
-    return iziToast.info({
+    iziToast.info({
       position: 'topRight',
       message: 'Error enter any symbols',
     });
+    loaderTop.style.display = 'none';
+    return;
   }
 
   try {
