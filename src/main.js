@@ -35,15 +35,15 @@ async function onSubmit(event) {
   page = 1;
   q = event.target.elements.search.value.trim();
 
-  try {
-    if (!q) {
-      gallery.innerHTML = '';
-      return iziToast.info({
-        position: 'topRight',
-        message: 'Error enter any symbols',
-      });
-    }
+  if (!q) {
+    gallery.innerHTML = '';
+    return iziToast.info({
+      position: 'topRight',
+      message: 'Error enter any symbols',
+    });
+  }
 
+  try {
     const {
       data: { hits, totalHits },
     } = await searchImg(q, page);
